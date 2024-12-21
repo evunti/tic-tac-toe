@@ -22,7 +22,7 @@ jobs:
           password: ${{secrets.GITHUB_TOKEN}}
 
       - name: Build the Docker image
-        run: \
+        run: |
           tag="ghcr.io/evunti/tic-tac-toe:$(date +%s)"
           docker build . --file Dockerfile --tag $tag
           docker push $tag
