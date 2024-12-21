@@ -1,6 +1,11 @@
-FROM node:22-alpine
+FROM oven/bun:1 AS base 
+
 WORKDIR /web
 COPY . .
-RUN npm install
+RUN bun install
+RUN bun run build
+
+RUN bun install -g serve
+
 EXPOSE 3000
-CMD npm start 
+CMD serve -s build
