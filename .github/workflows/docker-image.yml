@@ -23,6 +23,6 @@ jobs:
 
       - name: Build the Docker image
         run: \
-          tag=ghcr.io/evunti/tic-tac-toe:$(date +%s)
+          tag="ghcr.io/evunti/tic-tac-toe:$(date +%s)"
           docker build . --file Dockerfile --tag $tag
           docker push $tag
